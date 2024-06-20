@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random Trivia Cards</title>
+<style>
+  #trivia-container {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+  }
+</style>
+</head>
+<body>
+  <p id="trivia-container"></p>
+  <button id="showTriviaButton">Show Random Trivia</button>
+
+  <script>
+  const trivia_words = [
+    "Chaussette (French for sock) also names a bat in Madagascar.",
+    "Greek Push Urge: Takipsilia is the urge to push things off-balance (without them falling).",
+    "Japanese Book Hoard: Tsundoku describes buying books and letting them pile up unread.",
+    "Spanish After-Meal Chat: Sobremesa is the social conversation after a meal.",
+    "Chilean Tablecloth Saver: Sobremesa (in Chile) is a small tablecloth placed on top to protect from crumbs."
+  ];
+
+  function displayTrivia() {
+    const triviaContainer = document.getElementById("trivia-container");
+    triviaContainer.textContent = ""; // Clear previous content
+
+    // Get a random trivia word
+    const randomIndex = Math.floor(Math.random() * trivia_words.length);
+    const triviaWord = trivia_words[randomIndex];
+
+    // Set the trivia word as content of the p element
+    triviaContainer.textContent = triviaWord;
+  }
+
+  // Get the button element
+  const showTriviaButton = document.getElementById("showTriviaButton");
+
+  // Attach click event listener to the button
+  showTriviaButton.addEventListener("click", displayTrivia);
+
+  // Call the displayTrivia function on page load (optional, comment out if not needed)
+  // window.onload = displayTrivia;
+  </script>
+</body>
+</html>
